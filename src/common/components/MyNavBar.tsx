@@ -14,7 +14,7 @@ import {useNavigate} from "react-router-dom";
 
 const pages = ['repositories', 'users', 'analytics'];
 
-function NavBar() {
+function MyNavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate()
 
@@ -85,4 +85,4 @@ function NavBar() {
     </AppBar>
   );
 }
-export default NavBar;
+export default MyNavBar;

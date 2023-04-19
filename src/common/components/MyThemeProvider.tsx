@@ -1,8 +1,10 @@
 import {createTheme} from "@mui/material/styles";
 import {BlogTheme} from "@mui/material/styles";
 import {ThemeProvider} from "@mui/styles";
-import {BlogProviderProps} from "../../types/themeModels";
+import {ReactNode} from "react";
 
+export type BlogProviderProps = {children: ReactNode}
+export type ThemeProviderProps = {children: ReactNode, theme: BlogTheme}
 
 function BlogThemeProvider({children}: BlogProviderProps) {
   const theme: BlogTheme = createTheme({

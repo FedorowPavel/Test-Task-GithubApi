@@ -2,10 +2,10 @@ import {Outlet} from "react-router-dom";
 import {Box} from "@mui/material";
 import {useTheme} from "@mui/styles";
 import {BlogTheme} from "@mui/material/styles";
-import NavBar from "./NavBar";
+import MyNavBar from "./MyNavBar";
 
 
-const Layout = () => {
+const MyLayout = () => {
   const theme = useTheme<BlogTheme>()
 
   return (
@@ -16,9 +16,9 @@ const Layout = () => {
         flexDirection: 'column',
         minHeight: '100vh'
     }}>
-      <NavBar/>
+      <MyNavBar/>
       <Outlet/>
     </Box>
   );
 };
-export default Layout;
+export default MyLayout;

@@ -14,7 +14,6 @@ export const baseQueryWithInterceptor: BaseQueryFn<string | FetchArgs, unknown, 
   const res = await baseQuery(args, api, extraOptions);
 
   if(res.error && res.error.status === 401) {
-    // api.dispatch(logout())
     console.log(res.error)
   }
 

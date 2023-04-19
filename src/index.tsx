@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
-import {BlogThemeProvider} from "./common/components/hoc/ThemeProvider";
+import {BlogThemeProvider} from "./common/components/MyThemeProvider";
 import {Provider} from "react-redux";
 import {setupStore} from "./common/store";
 import {BrowserRouter} from "react-router-dom";

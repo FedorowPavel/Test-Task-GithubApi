@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from "react-router-dom";
-import Layout from "./common/components/wrappers/Layout";
+import MyLayout from "./common/components/MyLayout";
 import NotFoundPage from "./common/components/NotFoundPage";
 import Repositories from "./features/repos";
 import Users from "./features/users";
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Layout/>}>
+      <Route path='/' element={<MyLayout/>}>
         <Route path='*' element={<NotFoundPage/>}/>
 
         <Route path='/' element={<Welcome/>}/>
