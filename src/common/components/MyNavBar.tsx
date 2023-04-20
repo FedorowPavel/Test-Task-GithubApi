@@ -31,7 +31,9 @@ function MyNavBar() {
     <AppBar position="static" sx={{backgroundColor: "#1f1f1f"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <GitHubIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <div onClick={() => navigate('/')}>
+            <GitHubIcon sx={{ display: { xs: 'none', md: 'flex', cursor: 'pointer' }, mr: 1 }}/>
+          </div>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"

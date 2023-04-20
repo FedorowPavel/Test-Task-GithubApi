@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
-import {BlogThemeProvider} from "./common/components/MyThemeProvider";
 import {Provider} from "react-redux";
 import {setupStore} from "./common/store";
 import {BrowserRouter} from "react-router-dom";
@@ -15,11 +14,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Provider store={store}>
-    <BlogThemeProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </BlogThemeProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
 
 );
