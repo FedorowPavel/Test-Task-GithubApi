@@ -1,6 +1,7 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {createApi} from '@reduxjs/toolkit/query/react'
 import { baseQueryWithInterceptor } from "./baseQueryWithInterceptor";
+import analyticsReducer from '../../features/analitics/store/analyticsSlice'
 
 export const setupStore = () => {
   return configureStore({
@@ -24,6 +25,7 @@ export const api = createApi({
 })
 
 const rootReducer = combineReducers({
+  analyticsReducer,
   [api.reducerPath]: api.reducer,
 })
 
