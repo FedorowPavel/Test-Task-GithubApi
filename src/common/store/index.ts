@@ -7,20 +7,21 @@ export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware({}).concat(api.middleware)
+      return getDefaultMiddleware({serializableCheck: false}).concat(api.middleware)
     }
   })
 }
 
 export enum ApiTags {
   REPOSITORIES = 'Repositories',
-  USERS = 'Users'
+  USERS = 'Users',
+  ANALYTICS = 'Analytics'
 }
 
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithInterceptor,
-  tagTypes: [ApiTags.REPOSITORIES,ApiTags.USERS],
+  tagTypes: [ApiTags.REPOSITORIES, ApiTags.USERS, ApiTags.ANALYTICS],
   endpoints: () => ({}),
 })
 
