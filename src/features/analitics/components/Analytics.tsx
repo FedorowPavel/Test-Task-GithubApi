@@ -1,12 +1,15 @@
 import React from 'react';
-import {useAppSelector} from "../../../common/store/hooks";
+import {useAppDispatch, useAppSelector} from "../../../common/store/hooks";
 import EmptyPlug from "./EmptyPlug";
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import {analyticsApi} from "../store/api";
 import MySpinner from "../../../common/components/MySpinner";
+import MyButton from "../../../common/components/MyButton";
+import {removeAllRepos} from "../store/analyticsSlice";
 
 const Analytics = () => {
+  const dispatch = useAppDispatch()
   const selectedRepos = useAppSelector(state => state.analyticsReducer.selectedRepositories)
   const {data, isLoading, isFetching} = analyticsApi.useGetReposAnalyticsDataQuery(selectedRepos, {refetchOnMountOrArgChange: true})
 
@@ -19,9 +22,10 @@ const Analytics = () => {
   }
 
   return (
-    <div>
+    <>
       <HighchartsReact highcharts={Highcharts} options={data}/>
-    </div>
+      <MyButton onClickCb={() => dispatch(removeAllRepos())} title={'Remove all'}/>
+    </>
   );
 };
 

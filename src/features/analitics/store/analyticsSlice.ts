@@ -18,8 +18,11 @@ export const analyticsSlice = createSlice({
     removeRepo: (state, action: PayloadAction<string>) => {
       state.selectedRepositories = state.selectedRepositories.filter(item => item !== action.payload)
     },
+    removeAllRepos: (state) => {
+      state.selectedRepositories = []
+    }
   }
 })
 
 export default analyticsSlice.reducer;
-export const {addRepo, removeRepo} = analyticsSlice.actions
+export const {addRepo, removeRepo, removeAllRepos} = analyticsSlice.actions
