@@ -7,6 +7,7 @@ import Users from "./features/users";
 import Welcome from "./features/welcome/components/Welcome";
 import RepositoryDetails from "./features/repos/components/RepositoryDetails";
 import UserDetails from "./features/users/components/UserDetails";
+import Analytics from "./features/analitics";
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
           <Route path=':fullName' element={<UserDetails/>}/>
         </Route>
 
-        <Route path={'/analytics'} element={<>analytics</>}>
+        <Route path={'/analytics'} element={<Analytics/>}>
         </Route>
 
       </Route>

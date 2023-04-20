@@ -13,7 +13,7 @@ const MyCard: React.FC<{repository?: Repository, user?: RepoOwner}> = ({reposito
       borderRadius: '12px',
       boxShadow: '2px 2px 5px grey',
       padding: '26px',
-      marginBottom: '40px',
+      marginBottom: '20px',
       cursor: 'pointer',
       boxSizing: 'border-box',
       maxWidth: '100%',

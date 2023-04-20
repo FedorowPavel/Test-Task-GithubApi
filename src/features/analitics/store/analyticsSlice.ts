@@ -16,7 +16,6 @@ export const analyticsSlice = createSlice({
       state.selectedRepositories = [...state.selectedRepositories, action.payload];
     },
     removeRepo: (state, action: PayloadAction<string>) => {
-      console.log(state.selectedRepositories.filter(item => item !== action.payload))
       state.selectedRepositories = state.selectedRepositories.filter(item => item !== action.payload)
     },
   }
