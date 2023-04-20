@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 
 const EmptyPlug = () => {
   const navigate = useNavigate()
+
   return (
     <Box sx={{
       display: 'flex',
@@ -18,7 +19,6 @@ const EmptyPlug = () => {
       <Typography variant={'h5'}>
         To see charts, please add repositories on <Link onClick={() => navigate('/repositories')}>this page</Link>
       </Typography>
-
     </Box>
   );
 };
