@@ -5,7 +5,7 @@ interface AnalyticsState {
 }
 
 const initState: AnalyticsState = {
-  selectedRepositories: ['test'],
+  selectedRepositories: [],
 }
 
 export const analyticsSlice = createSlice({
@@ -16,7 +16,8 @@ export const analyticsSlice = createSlice({
       state.selectedRepositories = [...state.selectedRepositories, action.payload];
     },
     removeRepo: (state, action: PayloadAction<string>) => {
-      state.selectedRepositories.filter(item => item !== action.payload)
+      console.log(state.selectedRepositories.filter(item => item !== action.payload))
+      state.selectedRepositories = state.selectedRepositories.filter(item => item !== action.payload)
     },
   }
 })

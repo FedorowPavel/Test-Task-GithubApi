@@ -11,10 +11,14 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {useNavigate} from "react-router-dom";
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import {Badge} from "@mui/material";
+import {useAppSelector} from "../store/hooks";
 
 const pages = ['repositories', 'users', 'analytics'];
 
 function MyNavBar() {
+  const selectedRepos = useAppSelector(state => state.analyticsReducer.selectedRepositories)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate()
 
@@ -66,6 +70,7 @@ function MyNavBar() {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
                   <Typography textAlign="center">{page}</Typography>
+                  {page === 'analytics' ? <TrendingUpIcon sx={{marginLeft: '6px'}}/> : null}
                 </MenuItem>
               ))}
             </Menu>
@@ -76,9 +81,16 @@ function MyNavBar() {
               <Button
                 key={page}
                 onClick={() => handleCloseNavMenu(page)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 {page}
+                {
+                  page === 'analytics' ?
+                    <Badge badgeContent={selectedRepos.length} color="secondary">
+                      <TrendingUpIcon sx={{marginLeft: '6px'}}/>
+                    </Badge>:
+                    null
+                }
               </Button>
             ))}
           </Box>

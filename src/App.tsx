@@ -8,12 +8,6 @@ import Welcome from "./features/welcome/components/Welcome";
 import RepositoryDetails from "./features/repos/components/RepositoryDetails";
 import UserDetails from "./features/users/components/UserDetails";
 
-// "@emotion/react": "^11.10.4",
-//   "@emotion/styled": "^11.10.4",
-//   "@mui/icons-material": "^5.4.1",
-//   "@mui/material": "^5.10.6",
-//   "@mui/styles": "^5.4.0",
-
 function App() {
 
   return (
