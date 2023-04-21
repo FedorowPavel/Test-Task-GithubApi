@@ -27,8 +27,9 @@ api - **public GitHub API**
 `npm start`
 
 ## Запустить проект в докер контейнере
-`npm docker build` - создание docker image \
-`npm docker run` - запуск docker container \
+Необходиом запустить последовательно два скрипта из package.json файла \
+`docker build` - создание docker image \
+`docker run` - запуск docker container \
 открыть [http://localhost:3000/](http://localhost:3000/)
 
 
