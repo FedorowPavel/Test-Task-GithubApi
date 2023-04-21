@@ -8,7 +8,6 @@ import MyCard from "../../../common/components/MyCard";
 
 const Repositories = () => {
   const {paginationConfig, changePageHandler} = usePaginate()
-
   const {data, isLoading, isFetching} = repositoriesApi.useGetRepositoriesQuery(paginationConfig, {refetchOnMountOrArgChange: true})
 
   if(!data) {
@@ -31,7 +30,9 @@ const Repositories = () => {
       {
         isFetching || isLoading ?
           <MySpinner/> :
-          <>{data?.items.map((repo) => <MyCard repository={repo} key={repo.id}/>)}</>
+          <>
+            {data?.items.map((repo) => <MyCard repository={repo} key={repo.id}/>)}
+          </>
       }
       </Box>
       <MyPagination

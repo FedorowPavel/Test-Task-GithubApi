@@ -39,8 +39,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docker build": "docker build . -t azati-test-task",
-    "docker run": "docker run -it -p 3000:3000 azati-test-task"
+    "docker build": "docker build . -t test-task",
+    "docker run": "docker run -it -p 3000:3000 test-task"
   },
   "eslintConfig": {
     "extends": [

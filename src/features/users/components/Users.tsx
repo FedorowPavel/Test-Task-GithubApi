@@ -10,9 +10,6 @@ const Users = () => {
   const {paginationConfig, changePageHandler} = usePaginate()
   const {data: users, isLoading, isFetching} = usersApi.useGetAllUsersQuery(paginationConfig, {refetchOnMountOrArgChange: true})
 
-  if(users) {
-    console.log(users)
-  }
   if(!users) {
     return <MySpinner/>
   }
@@ -38,7 +35,7 @@ const Users = () => {
       </Box>
       <MyPagination
         page={paginationConfig.offset + 1}
-        count={Math.ceil(users?.total_count as number/paginationConfig.perPage)}
+        count={Math.ceil(1000/paginationConfig.perPage)} // api gives only first 1000 for unauthorized requests
         onChange={changePageHandler}
       />
     </Box>
