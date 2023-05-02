@@ -1,3 +1,3 @@
-import Repositories from "./components/Repositories";
+import Repositories from './components/Repositories';
 
-export default Repositories
+export default Repositories;

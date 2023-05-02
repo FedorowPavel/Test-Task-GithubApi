@@ -10,33 +10,33 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import {Badge} from "@mui/material";
-import {useAppSelector} from "../store/hooks";
+import {Badge} from '@mui/material';
+import {useAppSelector} from '../store/hooks';
 
 const pages = ['repositories', 'users', 'analytics'];
 
 function MyNavBar() {
-  const selectedRepos = useAppSelector(state => state.analyticsReducer.selectedRepositories)
+  const selectedRepos = useAppSelector((state) => state.analyticsReducer.selectedRepositories);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = (page: string) => {
-    navigate(page)
+    navigate(page);
     setAnchorElNav(null);
   };
 
   return (
-    <AppBar position="static" sx={{backgroundColor: "#1f1f1f"}}>
+    <AppBar position="static" sx={{backgroundColor: '#1f1f1f'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <div onClick={() => navigate('/')}>
-            <GitHubIcon sx={{ display: { xs: 'none', md: 'flex', cursor: 'pointer' }, mr: 1 }}/>
+            <GitHubIcon sx={{ display: { xs: 'none', md: 'flex', cursor: 'pointer' }, mr: 1 }} />
           </div>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -70,7 +70,7 @@ function MyNavBar() {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
                   <Typography textAlign="center">{page}</Typography>
-                  {page === 'analytics' ? <TrendingUpIcon sx={{marginLeft: '6px'}}/> : null}
+                  {page === 'analytics' ? <TrendingUpIcon sx={{marginLeft: '6px'}} /> : null}
                 </MenuItem>
               ))}
             </Menu>
@@ -81,15 +81,19 @@ function MyNavBar() {
               <Button
                 key={page}
                 onClick={() => handleCloseNavMenu(page)}
-                sx={{ my: 2, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                sx={{
+                  my: 2, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}
               >
                 {page}
                 {
-                  page === 'analytics' ?
-                    <Badge badgeContent={selectedRepos.length} color="secondary">
-                      <TrendingUpIcon sx={{marginLeft: '6px'}}/>
-                    </Badge>:
-                    null
+                  page === 'analytics'
+                    ? (
+                      <Badge badgeContent={selectedRepos.length} color="secondary">
+                        <TrendingUpIcon sx={{marginLeft: '6px'}} />
+                      </Badge>
+                    )
+                    : null
                 }
               </Button>
             ))}

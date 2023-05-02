@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
+import {Provider} from 'react-redux';
+import {BrowserRouter} from 'react-router-dom';
 import App from './App';
-import {Provider} from "react-redux";
-import {setupStore} from "./common/store";
-import {BrowserRouter} from "react-router-dom";
+import {setupStore} from './common/store';
 
-const store = setupStore()
+const store = setupStore();
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 
 root.render(
@@ -17,7 +17,6 @@ root.render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 
 );
-

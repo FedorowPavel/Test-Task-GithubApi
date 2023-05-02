@@ -1,3 +1,3 @@
-import Analytics from "./components/Analytics";
+import Analytics from './components/Analytics';
 
-export default Analytics
+export default Analytics;

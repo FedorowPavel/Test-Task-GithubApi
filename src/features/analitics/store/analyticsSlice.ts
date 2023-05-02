@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface AnalyticsState {
   selectedRepositories: string[],
@@ -6,7 +6,7 @@ interface AnalyticsState {
 
 const initState: AnalyticsState = {
   selectedRepositories: [],
-}
+};
 
 export const analyticsSlice = createSlice({
   name: 'Analytics',
@@ -16,13 +16,13 @@ export const analyticsSlice = createSlice({
       state.selectedRepositories = [...state.selectedRepositories, action.payload];
     },
     removeRepo: (state, action: PayloadAction<string>) => {
-      state.selectedRepositories = state.selectedRepositories.filter(item => item !== action.payload)
+      state.selectedRepositories = state.selectedRepositories.filter((item) => item !== action.payload);
     },
     removeAllRepos: (state) => {
-      state.selectedRepositories = []
-    }
-  }
-})
+      state.selectedRepositories = [];
+    },
+  },
+});
 
 export default analyticsSlice.reducer;
-export const {addRepo, removeRepo, removeAllRepos} = analyticsSlice.actions
+export const {addRepo, removeRepo, removeAllRepos} = analyticsSlice.actions;

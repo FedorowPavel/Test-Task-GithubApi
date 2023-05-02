@@ -1,32 +1,34 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import React, {
+  FC, useCallback, useEffect, useState,
+} from 'react';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import {Box} from "@mui/material";
-import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {addRepo, removeRepo} from "../../features/analitics/store/analyticsSlice";
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import {Box} from '@mui/material';
+import {useAppDispatch, useAppSelector} from '../store/hooks';
+import {addRepo, removeRepo} from '../../features/analitics/store/analyticsSlice';
 
 interface Props {
   repoFullName: string
 }
 
 const MyAddToAnalyticsBtn: FC<Props> = ({repoFullName}) => {
-  const selectedRepos = useAppSelector(state => state.analyticsReducer.selectedRepositories)
-  const [added, setIsAdded] = useState<boolean>(false)
-  const dispatch = useAppDispatch()
+  const selectedRepos = useAppSelector((state) => state.analyticsReducer.selectedRepositories);
+  const [added, setIsAdded] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   const addHandler = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation()
-    dispatch(added ? removeRepo(repoFullName) : addRepo(repoFullName))
-  }, [added])
+    e.stopPropagation();
+    dispatch(added ? removeRepo(repoFullName) : addRepo(repoFullName));
+  }, [added]);
 
   useEffect(() => {
-    if(selectedRepos.includes(repoFullName)) {
-      setIsAdded(true)
+    if (selectedRepos.includes(repoFullName)) {
+      setIsAdded(true);
     } else {
-      setIsAdded(false)
+      setIsAdded(false);
     }
-  }, [selectedRepos])
+  }, [selectedRepos]);
 
   return (
     <Box
@@ -44,12 +46,13 @@ const MyAddToAnalyticsBtn: FC<Props> = ({repoFullName}) => {
         padding: '4px',
 
         '&:hover': {
-          backgroundColor: 'lightgrey'
-        }
+          backgroundColor: 'lightgrey',
+        },
 
-      }}>
-      {added ? <RemoveCircleIcon/> : <AddCircleIcon/>}
-      <TrendingUpIcon/>
+      }}
+    >
+      {added ? <RemoveCircleIcon /> : <AddCircleIcon />}
+      <TrendingUpIcon />
     </Box>
   );
 };

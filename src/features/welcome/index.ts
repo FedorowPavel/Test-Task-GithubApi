@@ -1,3 +1,3 @@
-import Welcome from "./components/Welcome";
+import Welcome from './components/Welcome';
 
-export default Welcome
+export default Welcome;

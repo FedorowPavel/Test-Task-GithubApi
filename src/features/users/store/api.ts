@@ -1,8 +1,8 @@
-import {api, ApiTags} from "../../../common/store";
-import {GetAllUsersResponse, PaginationConfigModel, RepoOwner} from "../../../common/types";
+import {api, ApiTags} from '../../../common/store';
+import {GetAllUsersResponse, PaginationConfigModel, RepoOwner} from '../../../common/types';
 
 export const usersApi = api.injectEndpoints({
-  endpoints: (build) =>  ({
+  endpoints: (build) => ({
     getAllUsers: build.query<GetAllUsersResponse, PaginationConfigModel>({
       providesTags: [ApiTags.USERS],
       query: ({offset, perPage}) => ({url: `search/users?q=""&per_page=${perPage}&page=${offset}`}),
@@ -12,8 +12,5 @@ export const usersApi = api.injectEndpoints({
       providesTags: [ApiTags.USERS],
       query: ({name}) => ({url: `/users/${name}`}),
     }),
-  })
-})
-
-
-
+  }),
+});
